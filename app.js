@@ -6,7 +6,7 @@ const myRemoveBgFunction = require('./api.js');
 
 const app = express();
 
-const upload = multer({ dest: 'tmp/' });
+const upload = multer({ dest: '/tmp' });
 app.use(cors());
 
 app.post('/api/upload', upload.single('image'), async (req, res) => {

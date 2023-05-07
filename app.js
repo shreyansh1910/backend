@@ -13,8 +13,9 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
     console.log(req.file);
     const imageFile = req.file;
     console.log(__dirname + '/' + imageFile.path, __dirname + '/' + imageFile.path + 'removed');
-    await myRemoveBgFunction(__dirname + '/' + imageFile.path, __dirname + '/' + imageFile.path + 'removed');
-    res.sendFile(__dirname + '/' + imageFile.path + 'removed');
+    //  await myRemoveBgFunction(__dirname + '/' + imageFile.path, __dirname + '/' + imageFile.path + 'removed');
+    console.log("done");
+    res.sendFile(__dirname + '/' + "uploads/hello.png");
 
 });
 

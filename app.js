@@ -10,6 +10,7 @@ const upload = multer({ dest: 'uploads/' });
 app.use(cors());
 
 app.post('/api/upload', upload.single('image'), async (req, res) => {
+    console.log("hello i am api/upload");
     console.log(req.file);
     const imageFile = req.file;
     console.log(__dirname + '/' + imageFile.path, __dirname + '/' + imageFile.path + 'removed');

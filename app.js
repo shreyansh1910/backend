@@ -6,7 +6,7 @@ const myRemoveBgFunction = require('./api.js');
 
 const app = express();
 
-const upload = multer({ dest: '/tmp' });
+const upload = multer({ dest: 'tmp' });
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://frontend-orcin-beta.vercel.app');
@@ -21,8 +21,18 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed request headers
 };
 
-// Enable CORS with the specified options
+//Enable CORS with the specified options
 app.use(cors(corsOptions));
+
+// Enable CORS for all HTTP methods
+// app.use(cors());
+
+// Enable CORS for only specific HTTP methods
+// app.use(cors({
+//     origin: 'https://frontend-orcin-beta.vercel.app',
+//     methods: ['GET', 'POST'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// };
 
 
 app.post('/api/upload', upload.single('image'), async (req, res) => {

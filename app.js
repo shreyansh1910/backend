@@ -5,7 +5,7 @@ const cors = require('cors');
 const myRemoveBgFunction = require('./api.js');
 
 const app = express();
-app.use(express.static(__dirname + "/uploads"));
+
 const upload = multer({ dest: 'uploads/' });
 app.use(cors());
 

@@ -10,8 +10,11 @@ const upload = multer({ dest: '/tmp' });
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://frontend-orcin-beta.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
-});
+  });
+
 const corsOptions = {
     origin: 'https://frontend-orcin-beta.vercel.app', // Replace with your frontend's origin
     methods: ['GET', 'POST'], // Specify the allowed HTTP methods
